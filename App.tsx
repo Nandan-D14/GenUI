@@ -7,11 +7,16 @@ import { DocPage } from './pages/DocPage';
 import { Button } from './components/ui-lib/Button';
 import { Card, CardHeader, CardTitle, CardContent } from './components/ui-lib/Card';
 import { Input } from './components/ui-lib/Input';
+import { Badge } from './components/ui-lib/Badge';
+import { Avatar } from './components/ui-lib/Avatar';
+import { Alert } from './components/ui-lib/Alert';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from './components/ui-lib/Tabs';
+import { Footer } from './components/Footer';
 import { Menu, X, Github, Layers, Search } from 'lucide-react';
 import { ThemeToggle } from './components/ThemeToggle';
 import { SearchDialog } from './components/SearchDialog';
 
-// Example Code Snippets for the docs
+// Example Code Snippets
 const BUTTON_CODE = `import { Button } from "@/components/ui/button"
 
 export function ButtonDemo() {
@@ -41,6 +46,51 @@ export function CardDemo() {
         <p className="text-sm text-muted-foreground">Deploy your new project in one-click.</p>
       </CardContent>
     </Card>
+  )
+}`;
+
+const BADGE_CODE = `import { Badge } from "@/components/ui/badge"
+
+export function BadgeDemo() {
+  return <Badge>Badge</Badge>
+}`;
+
+const AVATAR_CODE = `import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+
+export function AvatarDemo() {
+  return (
+    <Avatar>
+      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+      <AvatarFallback>CN</AvatarFallback>
+    </Avatar>
+  )
+}`;
+
+const ALERT_CODE = `import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+
+export function AlertDemo() {
+  return (
+    <Alert>
+      <AlertTitle>Heads up!</AlertTitle>
+      <AlertDescription>
+        You can add components to your app using the cli.
+      </AlertDescription>
+    </Alert>
+  )
+}`;
+
+const TABS_CODE = `import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+
+export function TabsDemo() {
+  return (
+    <Tabs defaultValue="account" className="w-[400px]">
+      <TabsList>
+        <TabsTrigger value="account">Account</TabsTrigger>
+        <TabsTrigger value="password">Password</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account">Make changes to your account here.</TabsContent>
+      <TabsContent value="password">Change your password here.</TabsContent>
+    </Tabs>
   )
 }`;
 
@@ -174,9 +224,112 @@ const AppContent: React.FC = () => {
                 code={CARD_CODE}
               />
             } />
+
+            <Route path="/components/badge" element={
+              <DocPage
+                title="Badge"
+                description="Displays a badge or a component that looks like a badge."
+                component={
+                  <div className="flex gap-4 flex-wrap justify-center">
+                    <Badge>Default</Badge>
+                    <Badge variant="secondary">Secondary</Badge>
+                    <Badge variant="destructive">Destructive</Badge>
+                    <Badge variant="outline">Outline</Badge>
+                  </div>
+                }
+                code={BADGE_CODE}
+              />
+            } />
+
+            <Route path="/components/avatar" element={
+              <DocPage
+                title="Avatar"
+                description="An image element with a fallback for representing the user."
+                component={
+                  <div className="flex gap-4 flex-wrap justify-center items-center">
+                    <Avatar src="https://github.com/shadcn.png" alt="@shadcn" />
+                    <Avatar fallback="CN" />
+                  </div>
+                }
+                code={AVATAR_CODE}
+              />
+            } />
+
+            <Route path="/components/alert" element={
+              <DocPage
+                title="Alert"
+                description="Displays a callout for user attention."
+                component={
+                  <div className="w-full max-w-xl space-y-4">
+                     <Alert title="Heads up!">
+                       You can add components to your app using the cli.
+                     </Alert>
+                     <Alert variant="destructive" title="Error">
+                       Your session has expired. Please log in again.
+                     </Alert>
+                     <Alert variant="success" title="Success">
+                       Your changes have been saved successfully.
+                     </Alert>
+                  </div>
+                }
+                code={ALERT_CODE}
+              />
+            } />
+
+            <Route path="/components/tabs" element={
+              <DocPage
+                title="Tabs"
+                description="A set of layered sections of content—known as tab panels—that are displayed one at a time."
+                component={
+                  <Tabs defaultValue="account" className="w-[400px]">
+                    <TabsList className="grid w-full grid-cols-2">
+                      <TabsTrigger value="account">Account</TabsTrigger>
+                      <TabsTrigger value="password">Password</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="account">
+                      <Card>
+                        <CardHeader>
+                          <CardTitle>Account</CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-2">
+                          <div className="space-y-1">
+                            <label className="text-sm font-medium">Name</label>
+                            <Input defaultValue="Pedro Duarte" />
+                          </div>
+                          <div className="space-y-1">
+                            <label className="text-sm font-medium">Username</label>
+                            <Input defaultValue="@peduarte" />
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </TabsContent>
+                    <TabsContent value="password">
+                       <Card>
+                        <CardHeader>
+                          <CardTitle>Password</CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-2">
+                          <div className="space-y-1">
+                            <label className="text-sm font-medium">Current Password</label>
+                            <Input type="password" />
+                          </div>
+                          <div className="space-y-1">
+                            <label className="text-sm font-medium">New Password</label>
+                            <Input type="password" />
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </TabsContent>
+                  </Tabs>
+                }
+                code={TABS_CODE}
+              />
+            } />
+
           </Routes>
         </main>
       </div>
+      <Footer />
     </div>
   );
 };
