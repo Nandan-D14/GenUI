@@ -21,6 +21,7 @@ export const sidebarNav: SidebarSection[] = [
     items: [
       { title: "Button", href: "/components/button" },
       { title: "Input", href: "/components/input" },
+      { title: "Switch", href: "/components/switch" },
     ]
   },
   {

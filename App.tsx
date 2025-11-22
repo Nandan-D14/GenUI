@@ -11,6 +11,7 @@ import { Badge } from './components/ui-lib/Badge';
 import { Avatar } from './components/ui-lib/Avatar';
 import { Alert } from './components/ui-lib/Alert';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from './components/ui-lib/Tabs';
+
 import { Footer } from './components/Footer';
 import { Menu, X, Github, Layers, Search } from 'lucide-react';
 import { ThemeToggle } from './components/ThemeToggle';
