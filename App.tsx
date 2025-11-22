@@ -362,12 +362,12 @@ const AppContent: React.FC = () => {
                         </CardHeader>
                         <CardContent className="space-y-2">
                           <div className="space-y-1">
-                            <label className="text-sm font-medium">Name</label>
-                            <Input defaultValue="Pedro Duarte" />
+                            <label htmlFor="account-name" className="text-sm font-medium">Name</label>
+                            <Input id="account-name" defaultValue="Pedro Duarte" />
                           </div>
                           <div className="space-y-1">
-                            <label className="text-sm font-medium">Username</label>
-                            <Input defaultValue="@peduarte" />
+                            <label htmlFor="account-username" className="text-sm font-medium">Username</label>
+                            <Input id="account-username" defaultValue="@peduarte" />
                           </div>
                         </CardContent>
                       </Card>
@@ -379,12 +379,12 @@ const AppContent: React.FC = () => {
                         </CardHeader>
                         <CardContent className="space-y-2">
                           <div className="space-y-1">
-                            <label className="text-sm font-medium">Current Password</label>
-                            <Input type="password" />
+                            <label htmlFor="current-password" className="text-sm font-medium">Current Password</label>
+                            <Input id="current-password" type="password" />
                           </div>
                           <div className="space-y-1">
-                            <label className="text-sm font-medium">New Password</label>
-                            <Input type="password" />
+                            <label htmlFor="new-password" className="text-sm font-medium">New Password</label>
+                            <Input id="new-password" type="password" />
                           </div>
                         </CardContent>
                       </Card>
@@ -443,11 +443,11 @@ const AppContent: React.FC = () => {
                       </DialogHeader>
                       <div className="grid gap-4 py-4">
                         <div className="grid grid-cols-4 items-center gap-4">
-                          <label className="text-right text-sm font-medium">Name</label>
+                          <label htmlFor="name" className="text-right text-sm font-medium">Name</label>
                           <Input id="name" defaultValue="Pedro Duarte" className="col-span-3" />
                         </div>
                         <div className="grid grid-cols-4 items-center gap-4">
-                          <label className="text-right text-sm font-medium">Username</label>
+                          <label htmlFor="username" className="text-right text-sm font-medium">Username</label>
                           <Input id="username" defaultValue="@peduarte" className="col-span-3" />
                         </div>
                       </div>
