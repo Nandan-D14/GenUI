@@ -7,11 +7,20 @@ import { DocPage } from './pages/DocPage';
 import { Button } from './components/ui-lib/Button';
 import { Card, CardHeader, CardTitle, CardContent } from './components/ui-lib/Card';
 import { Input } from './components/ui-lib/Input';
+import { Badge } from './components/ui-lib/Badge';
+import { Avatar } from './components/ui-lib/Avatar';
+import { Alert } from './components/ui-lib/Alert';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from './components/ui-lib/Tabs';
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from './components/ui-lib/Accordion';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './components/ui-lib/Dialog';
+import { Switch } from './components/ui-lib/Switch';
+import { Skeleton } from './components/ui-lib/Skeleton';
+import { Footer } from './components/Footer';
 import { Menu, X, Github, Layers, Search } from 'lucide-react';
 import { ThemeToggle } from './components/ThemeToggle';
 import { SearchDialog } from './components/SearchDialog';
 
-// Example Code Snippets for the docs
+// Example Code Snippets
 const BUTTON_CODE = `import { Button } from "@/components/ui/button"
 
 export function ButtonDemo() {
@@ -41,6 +50,116 @@ export function CardDemo() {
         <p className="text-sm text-muted-foreground">Deploy your new project in one-click.</p>
       </CardContent>
     </Card>
+  )
+}`;
+
+const BADGE_CODE = `import { Badge } from "@/components/ui/badge"
+
+export function BadgeDemo() {
+  return <Badge>Badge</Badge>
+}`;
+
+const AVATAR_CODE = `import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+
+export function AvatarDemo() {
+  return (
+    <Avatar>
+      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+      <AvatarFallback>CN</AvatarFallback>
+    </Avatar>
+  )
+}`;
+
+const ALERT_CODE = `import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+
+export function AlertDemo() {
+  return (
+    <Alert>
+      <AlertTitle>Heads up!</AlertTitle>
+      <AlertDescription>
+        You can add components to your app using the cli.
+      </AlertDescription>
+    </Alert>
+  )
+}`;
+
+const TABS_CODE = `import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+
+export function TabsDemo() {
+  return (
+    <Tabs defaultValue="account" className="w-[400px]">
+      <TabsList>
+        <TabsTrigger value="account">Account</TabsTrigger>
+        <TabsTrigger value="password">Password</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account">Make changes to your account here.</TabsContent>
+      <TabsContent value="password">Change your password here.</TabsContent>
+    </Tabs>
+  )
+}`;
+
+const ACCORDION_CODE = `import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
+export function AccordionDemo() {
+  return (
+    <Accordion type="single" collapsible className="w-full">
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Is it accessible?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It adheres to the WAI-ARIA design pattern.
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  )
+}`;
+
+const DIALOG_CODE = `import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+
+export function DialogDemo() {
+  return (
+    <Dialog>
+      <DialogTrigger>Open</DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Are you sure?</DialogTitle>
+          <DialogDescription>
+            This action cannot be undone.
+          </DialogDescription>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
+  )
+}`;
+
+const SWITCH_CODE = `import { Switch } from "@/components/ui/switch"
+
+export function SwitchDemo() {
+  return <Switch />
+}`;
+
+const SKELETON_CODE = `import { Skeleton } from "@/components/ui/skeleton"
+
+export function SkeletonDemo() {
+  return (
+    <div className="flex items-center space-x-4">
+      <Skeleton className="h-12 w-12 rounded-full" />
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-[250px]" />
+        <Skeleton className="h-4 w-[200px]" />
+      </div>
+    </div>
   )
 }`;
 
@@ -174,9 +293,209 @@ const AppContent: React.FC = () => {
                 code={CARD_CODE}
               />
             } />
+
+            <Route path="/components/badge" element={
+              <DocPage
+                title="Badge"
+                description="Displays a badge or a component that looks like a badge."
+                component={
+                  <div className="flex gap-4 flex-wrap justify-center">
+                    <Badge>Default</Badge>
+                    <Badge variant="secondary">Secondary</Badge>
+                    <Badge variant="destructive">Destructive</Badge>
+                    <Badge variant="outline">Outline</Badge>
+                  </div>
+                }
+                code={BADGE_CODE}
+              />
+            } />
+
+            <Route path="/components/avatar" element={
+              <DocPage
+                title="Avatar"
+                description="An image element with a fallback for representing the user."
+                component={
+                  <div className="flex gap-4 flex-wrap justify-center items-center">
+                    <Avatar src="https://github.com/shadcn.png" alt="@shadcn" />
+                    <Avatar fallback="CN" />
+                  </div>
+                }
+                code={AVATAR_CODE}
+              />
+            } />
+
+            <Route path="/components/alert" element={
+              <DocPage
+                title="Alert"
+                description="Displays a callout for user attention."
+                component={
+                  <div className="w-full max-w-xl space-y-4">
+                     <Alert title="Heads up!">
+                       You can add components to your app using the cli.
+                     </Alert>
+                     <Alert variant="destructive" title="Error">
+                       Your session has expired. Please log in again.
+                     </Alert>
+                     <Alert variant="success" title="Success">
+                       Your changes have been saved successfully.
+                     </Alert>
+                  </div>
+                }
+                code={ALERT_CODE}
+              />
+            } />
+
+            <Route path="/components/tabs" element={
+              <DocPage
+                title="Tabs"
+                description="A set of layered sections of content—known as tab panels—that are displayed one at a time."
+                component={
+                  <Tabs defaultValue="account" className="w-[400px]">
+                    <TabsList className="grid w-full grid-cols-2">
+                      <TabsTrigger value="account">Account</TabsTrigger>
+                      <TabsTrigger value="password">Password</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="account">
+                      <Card>
+                        <CardHeader>
+                          <CardTitle>Account</CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-2">
+                          <div className="space-y-1">
+                            <label className="text-sm font-medium">Name</label>
+                            <Input defaultValue="Pedro Duarte" />
+                          </div>
+                          <div className="space-y-1">
+                            <label className="text-sm font-medium">Username</label>
+                            <Input defaultValue="@peduarte" />
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </TabsContent>
+                    <TabsContent value="password">
+                       <Card>
+                        <CardHeader>
+                          <CardTitle>Password</CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-2">
+                          <div className="space-y-1">
+                            <label className="text-sm font-medium">Current Password</label>
+                            <Input type="password" />
+                          </div>
+                          <div className="space-y-1">
+                            <label className="text-sm font-medium">New Password</label>
+                            <Input type="password" />
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </TabsContent>
+                  </Tabs>
+                }
+                code={TABS_CODE}
+              />
+            } />
+
+            <Route path="/components/accordion" element={
+              <DocPage
+                title="Accordion"
+                description="A vertically stacked set of interactive headings that each reveal a section of content."
+                component={
+                  <Accordion type="single" collapsible className="w-full max-w-lg">
+                    <AccordionItem value="item-1">
+                      <AccordionTrigger>Is it accessible?</AccordionTrigger>
+                      <AccordionContent>
+                        Yes. It adheres to the WAI-ARIA design pattern.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-2">
+                      <AccordionTrigger>Is it styled?</AccordionTrigger>
+                      <AccordionContent>
+                        Yes. It comes with default styles that matches the other components' aesthetic.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-3">
+                      <AccordionTrigger>Is it animated?</AccordionTrigger>
+                      <AccordionContent>
+                        Yes. It's animated by default, but you can disable it if you prefer.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                }
+                code={ACCORDION_CODE}
+              />
+            } />
+
+            <Route path="/components/dialog" element={
+              <DocPage
+                title="Dialog"
+                description="A window overlaid on either the primary window or another dialog window, rendering the content underneath inert."
+                component={
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button variant="outline">Edit Profile</Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[425px]">
+                      <DialogHeader>
+                        <DialogTitle>Edit profile</DialogTitle>
+                        <DialogDescription>
+                          Make changes to your profile here. Click save when you're done.
+                        </DialogDescription>
+                      </DialogHeader>
+                      <div className="grid gap-4 py-4">
+                        <div className="grid grid-cols-4 items-center gap-4">
+                          <label className="text-right text-sm font-medium">Name</label>
+                          <Input id="name" defaultValue="Pedro Duarte" className="col-span-3" />
+                        </div>
+                        <div className="grid grid-cols-4 items-center gap-4">
+                          <label className="text-right text-sm font-medium">Username</label>
+                          <Input id="username" defaultValue="@peduarte" className="col-span-3" />
+                        </div>
+                      </div>
+                      <DialogFooter>
+                        <Button type="submit">Save changes</Button>
+                      </DialogFooter>
+                    </DialogContent>
+                  </Dialog>
+                }
+                code={DIALOG_CODE}
+              />
+            } />
+
+            <Route path="/components/switch" element={
+               <DocPage
+                 title="Switch"
+                 description="A control that allows the user to toggle between checked and not checked."
+                 component={
+                   <div className="flex items-center space-x-2">
+                      <Switch id="airplane-mode" />
+                      <label htmlFor="airplane-mode" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Airplane Mode</label>
+                   </div>
+                 }
+                 code={SWITCH_CODE}
+               />
+             } />
+
+             <Route path="/components/skeleton" element={
+                <DocPage
+                  title="Skeleton"
+                  description="Use to show a placeholder while content is loading."
+                  component={
+                    <div className="flex items-center space-x-4">
+                      <Skeleton className="h-12 w-12 rounded-full" />
+                      <div className="space-y-2">
+                        <Skeleton className="h-4 w-[250px]" />
+                        <Skeleton className="h-4 w-[200px]" />
+                      </div>
+                    </div>
+                  }
+                  code={SKELETON_CODE}
+                />
+              } />
+
           </Routes>
         </main>
       </div>
+      <Footer />
     </div>
   );
 };

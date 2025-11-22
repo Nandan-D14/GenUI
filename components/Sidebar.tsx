@@ -21,12 +21,17 @@ export const sidebarNav: SidebarSection[] = [
     items: [
       { title: "Button", href: "/components/button" },
       { title: "Input", href: "/components/input" },
+      { title: "Switch", href: "/components/switch" },
     ]
   },
   {
     title: "Display",
     items: [
       { title: "Card", href: "/components/card" },
+      { title: "Badge", href: "/components/badge" },
+      { title: "Avatar", href: "/components/avatar" },
+      { title: "Accordion", href: "/components/accordion" },
+      { title: "Skeleton", href: "/components/skeleton" },
     ]
   },
   {
@@ -35,11 +40,16 @@ export const sidebarNav: SidebarSection[] = [
   },
   {
     title: "Navigation",
-    items: []
+    items: [
+       { title: "Tabs", href: "/components/tabs" },
+    ]
   },
   {
     title: "Feedback",
-    items: []
+    items: [
+       { title: "Alert", href: "/components/alert" },
+       { title: "Dialog", href: "/components/dialog" },
+    ]
   }
 ];
 
