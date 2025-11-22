@@ -30,8 +30,6 @@ export const sidebarNav: SidebarSection[] = [
       { title: "Card", href: "/components/card" },
       { title: "Badge", href: "/components/badge" },
       { title: "Avatar", href: "/components/avatar" },
-      { title: "Accordion", href: "/components/accordion" },
-      { title: "Skeleton", href: "/components/skeleton" },
     ]
   },
   {
@@ -48,7 +46,6 @@ export const sidebarNav: SidebarSection[] = [
     title: "Feedback",
     items: [
        { title: "Alert", href: "/components/alert" },
-       { title: "Dialog", href: "/components/dialog" },
     ]
   }
 ];
