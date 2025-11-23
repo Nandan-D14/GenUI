@@ -11,6 +11,10 @@ import { Badge } from './components/ui-lib/Badge';
 import { Avatar } from './components/ui-lib/Avatar';
 import { Alert } from './components/ui-lib/Alert';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from './components/ui-lib/Tabs';
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from './components/ui-lib/Accordion';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './components/ui-lib/Dialog';
+import { Switch } from './components/ui-lib/Switch';
+import { Skeleton } from './components/ui-lib/Skeleton';
 
 import { Footer } from './components/Footer';
 import { Menu, X, Github, Layers, Search } from 'lucide-react';
@@ -92,6 +96,71 @@ export function TabsDemo() {
       <TabsContent value="account">Make changes to your account here.</TabsContent>
       <TabsContent value="password">Change your password here.</TabsContent>
     </Tabs>
+  )
+}`;
+
+const ACCORDION_CODE = `import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
+export function AccordionDemo() {
+  return (
+    <Accordion type="single" collapsible className="w-full">
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Is it accessible?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It adheres to the WAI-ARIA design pattern.
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  )
+}`;
+
+const DIALOG_CODE = `import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+
+export function DialogDemo() {
+  return (
+    <Dialog>
+      <DialogTrigger>Open</DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Are you sure?</DialogTitle>
+          <DialogDescription>
+            This action cannot be undone.
+          </DialogDescription>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
+  )
+}`;
+
+const SWITCH_CODE = `import { Switch } from "@/components/ui/switch"
+
+export function SwitchDemo() {
+  return <Switch />
+}`;
+
+const SKELETON_CODE = `import { Skeleton } from "@/components/ui/skeleton"
+
+export function SkeletonDemo() {
+  return (
+    <div className="flex items-center space-x-4">
+      <Skeleton className="h-12 w-12 rounded-full" />
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-[250px]" />
+        <Skeleton className="h-4 w-[200px]" />
+      </div>
+    </div>
   )
 }`;
 
@@ -294,12 +363,12 @@ const AppContent: React.FC = () => {
                         </CardHeader>
                         <CardContent className="space-y-2">
                           <div className="space-y-1">
-                            <label htmlFor="name" className="text-sm font-medium">Name</label>
-                            <Input id="name" defaultValue="Pedro Duarte" />
+                            <label htmlFor="account-name" className="text-sm font-medium">Name</label>
+                            <Input id="account-name" defaultValue="Pedro Duarte" />
                           </div>
                           <div className="space-y-1">
-                            <label htmlFor="username" className="text-sm font-medium">Username</label>
-                            <Input id="username" defaultValue="@peduarte" />
+                            <label htmlFor="account-username" className="text-sm font-medium">Username</label>
+                            <Input id="account-username" defaultValue="@peduarte" />
                           </div>
                         </CardContent>
                       </Card>
@@ -326,6 +395,103 @@ const AppContent: React.FC = () => {
                 code={TABS_CODE}
               />
             } />
+
+            <Route path="/components/accordion" element={
+              <DocPage
+                title="Accordion"
+                description="A vertically stacked set of interactive headings that each reveal a section of content."
+                component={
+                  <Accordion type="single" collapsible className="w-full max-w-lg">
+                    <AccordionItem value="item-1">
+                      <AccordionTrigger>Is it accessible?</AccordionTrigger>
+                      <AccordionContent>
+                        Yes. It adheres to the WAI-ARIA design pattern.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-2">
+                      <AccordionTrigger>Is it styled?</AccordionTrigger>
+                      <AccordionContent>
+                        Yes. It comes with default styles that matches the other components' aesthetic.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-3">
+                      <AccordionTrigger>Is it animated?</AccordionTrigger>
+                      <AccordionContent>
+                        Yes. It's animated by default, but you can disable it if you prefer.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                }
+                code={ACCORDION_CODE}
+              />
+            } />
+
+            <Route path="/components/dialog" element={
+              <DocPage
+                title="Dialog"
+                description="A window overlaid on either the primary window or another dialog window, rendering the content underneath inert."
+                component={
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button variant="outline">Edit Profile</Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[425px]">
+                      <DialogHeader>
+                        <DialogTitle>Edit profile</DialogTitle>
+                        <DialogDescription>
+                          Make changes to your profile here. Click save when you're done.
+                        </DialogDescription>
+                      </DialogHeader>
+                      <div className="grid gap-4 py-4">
+                        <div className="grid grid-cols-4 items-center gap-4">
+                          <label htmlFor="name" className="text-right text-sm font-medium">Name</label>
+                          <Input id="name" defaultValue="Pedro Duarte" className="col-span-3" />
+                        </div>
+                        <div className="grid grid-cols-4 items-center gap-4">
+                          <label htmlFor="username" className="text-right text-sm font-medium">Username</label>
+                          <Input id="username" defaultValue="@peduarte" className="col-span-3" />
+                        </div>
+                      </div>
+                      <DialogFooter>
+                        <Button type="submit">Save changes</Button>
+                      </DialogFooter>
+                    </DialogContent>
+                  </Dialog>
+                }
+                code={DIALOG_CODE}
+              />
+            } />
+
+            <Route path="/components/switch" element={
+               <DocPage
+                 title="Switch"
+                 description="A control that allows the user to toggle between checked and not checked."
+                 component={
+                   <div className="flex items-center space-x-2">
+                      <Switch id="airplane-mode" />
+                      <label htmlFor="airplane-mode" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Airplane Mode</label>
+                   </div>
+                 }
+                 code={SWITCH_CODE}
+               />
+             } />
+
+             <Route path="/components/skeleton" element={
+                <DocPage
+                  title="Skeleton"
+                  description="Use to show a placeholder while content is loading."
+                  component={
+                    <div className="flex items-center space-x-4">
+                      <Skeleton className="h-12 w-12 rounded-full" />
+                      <div className="space-y-2">
+                        <Skeleton className="h-4 w-[250px]" />
+                        <Skeleton className="h-4 w-[200px]" />
+                      </div>
+                    </div>
+                  }
+                  code={SKELETON_CODE}
+                />
+              } />
 
           </Routes>
         </main>
