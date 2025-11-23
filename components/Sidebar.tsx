@@ -21,25 +21,60 @@ export const sidebarNav: SidebarSection[] = [
     items: [
       { title: "Button", href: "/components/button" },
       { title: "Input", href: "/components/input" },
+      { title: "Switch", href: "/components/switch" },
+      { title: "Checkbox", href: "/components/checkbox" },
+      { title: "Radio Group", href: "/components/radio-group" },
+      { title: "Select", href: "/components/select" },
+      { title: "Textarea", href: "/components/textarea" },
+      { title: "Slider", href: "/components/slider" },
     ]
   },
   {
     title: "Display",
     items: [
       { title: "Card", href: "/components/card" },
+      { title: "Badge", href: "/components/badge" },
+      { title: "Avatar", href: "/components/avatar" },
+      { title: "Accordion", href: "/components/accordion" },
+      { title: "Skeleton", href: "/components/skeleton" },
+      { title: "Separator", href: "/components/separator" },
+      { title: "Table", href: "/components/table" },
     ]
   },
   {
     title: "Layout",
-    items: []
+    items: [
+      { title: "Sheet", href: "/components/sheet" },
+    ]
   },
   {
     title: "Navigation",
-    items: []
+    items: [
+       { title: "Tabs", href: "/components/tabs" },
+    ]
   },
   {
     title: "Feedback",
-    items: []
+    items: [
+       { title: "Alert", href: "/components/alert" },
+       { title: "Dialog", href: "/components/dialog" },
+       { title: "Progress", href: "/components/progress" },
+    ]
+  },
+  {
+    title: "Blocks",
+    items: [
+       { title: "Hero", href: "/blocks/hero" },
+       { title: "Features", href: "/blocks/features" },
+       { title: "Pricing", href: "/blocks/pricing" },
+       { title: "Testimonials", href: "/blocks/testimonials" },
+       { title: "Stats", href: "/blocks/stats" },
+       { title: "CTA", href: "/blocks/cta" },
+       { title: "FAQ", href: "/blocks/faq" },
+       { title: "Team", href: "/blocks/team" },
+       { title: "Contact", href: "/blocks/contact" },
+       { title: "Blog", href: "/blocks/blog" },
+    ]
   }
 ];
 

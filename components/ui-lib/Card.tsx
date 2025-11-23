@@ -18,8 +18,20 @@ export const CardTitle: React.FC<React.HTMLAttributes<HTMLHeadingElement>> = ({ 
   </h3>
 );
 
+export const CardDescription: React.FC<React.HTMLAttributes<HTMLParagraphElement>> = ({ className = '', children, ...props }) => (
+  <p className={`text-sm text-muted-foreground ${className}`} {...props}>
+    {children}
+  </p>
+);
+
 export const CardContent: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ className = '', children, ...props }) => (
   <div className={`p-6 pt-0 ${className}`} {...props}>
+    {children}
+  </div>
+);
+
+export const CardFooter: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ className = '', children, ...props }) => (
+  <div className={`flex items-center p-6 pt-0 ${className}`} {...props}>
     {children}
   </div>
 );
