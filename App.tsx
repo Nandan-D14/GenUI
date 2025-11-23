@@ -10,7 +10,7 @@ import { Button } from './components/ui-lib/Button';
 import { Card, CardHeader, CardTitle, CardContent } from './components/ui-lib/Card';
 import { Input } from './components/ui-lib/Input';
 import { Badge } from './components/ui-lib/Badge';
-import { Avatar, AvatarImage, AvatarFallback } from './components/ui-lib/Avatar';
+import { Avatar, AvatarFallback } from './components/ui-lib/Avatar';
 import { Alert } from './components/ui-lib/Alert';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from './components/ui-lib/Tabs';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from './components/ui-lib/Accordion';
