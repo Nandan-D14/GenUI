@@ -1,4 +1,4 @@
-from playwright.sync_api import Page, expect, sync_playwright
+from playwright.sync_api import Page, sync_playwright
 
 def debug_home(page: Page):
     page.goto("http://localhost:3000")

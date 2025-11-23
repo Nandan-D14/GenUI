@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '../components/ui-lib/Button';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Box, Smartphone, Zap, Check, Code, Palette } from 'lucide-react';
+import { ArrowRight, Smartphone, Zap, Check, Code, Palette } from 'lucide-react';
 
 export const Home: React.FC = () => {
   return (
