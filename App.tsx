@@ -294,12 +294,12 @@ const AppContent: React.FC = () => {
                         </CardHeader>
                         <CardContent className="space-y-2">
                           <div className="space-y-1">
-                            <label className="text-sm font-medium">Name</label>
-                            <Input defaultValue="Pedro Duarte" />
+                            <label htmlFor="name" className="text-sm font-medium">Name</label>
+                            <Input id="name" defaultValue="Pedro Duarte" />
                           </div>
                           <div className="space-y-1">
-                            <label className="text-sm font-medium">Username</label>
-                            <Input defaultValue="@peduarte" />
+                            <label htmlFor="username" className="text-sm font-medium">Username</label>
+                            <Input id="username" defaultValue="@peduarte" />
                           </div>
                         </CardContent>
                       </Card>
@@ -311,12 +311,12 @@ const AppContent: React.FC = () => {
                         </CardHeader>
                         <CardContent className="space-y-2">
                           <div className="space-y-1">
-                            <label className="text-sm font-medium">Current Password</label>
-                            <Input type="password" />
+                            <label htmlFor="current-password" className="text-sm font-medium">Current Password</label>
+                            <Input id="current-password" type="password" />
                           </div>
                           <div className="space-y-1">
-                            <label className="text-sm font-medium">New Password</label>
-                            <Input type="password" />
+                            <label htmlFor="new-password" className="text-sm font-medium">New Password</label>
+                            <Input id="new-password" type="password" />
                           </div>
                         </CardContent>
                       </Card>
