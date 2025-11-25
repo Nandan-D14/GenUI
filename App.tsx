@@ -15,6 +15,7 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from './
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './components/ui-lib/Dialog';
 import { Switch } from './components/ui-lib/Switch';
 import { Skeleton } from './components/ui-lib/Skeleton';
+import Nebula from './components/Nebula';
 
 import { Footer } from './components/Footer';
 import { Menu, X, Github, Layers, Search } from 'lucide-react';
@@ -504,7 +505,10 @@ const AppContent: React.FC = () => {
 const App: React.FC = () => {
   return (
     <Router>
-      <AppContent />
+      <Routes>
+        <Route path="/nebula" element={<Nebula />} />
+        <Route path="/*" element={<AppContent />} />
+      </Routes>
     </Router>
   );
 };

@@ -17,6 +17,12 @@ export const sidebarNav: SidebarSection[] = [
     ]
   },
   {
+    title: "Landing Pages",
+    items: [
+      { title: "Nebula", href: "/nebula" },
+    ]
+  },
+  {
     title: "Forms",
     items: [
       { title: "Button", href: "/components/button" },
